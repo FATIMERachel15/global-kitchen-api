@@ -13,6 +13,11 @@ const createRecipe = async (recipeData) => {
     throw new Error("Cooking time must be positive");
   }
 
+  const existingRecipe = await Recipe.findOne({ title: recipeData.title });
+  if (existingRecipe) {
+    throw new Error("A recipe with this title already exists");
+  }
+
   return await Recipe.create(recipeData);
 };
 

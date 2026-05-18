@@ -8,6 +8,7 @@ const recipeSchema = new mongoose.Schema(
             type: String,
             required: true,
             trim: true,
+            unique: true,
         },
 
         //List of ingredients as an array of strings

@@ -15,7 +15,9 @@ const createRecipe = async (recipeData) => {
 
   const existingRecipe = await Recipe.findOne({ title: recipeData.title });
   if (existingRecipe) {
-    throw new Error("A recipe with this title already exists");
+    const error = new Error("Recipe already exists");
+    error.statusCode = 400;
+    throw error;
   }
 
   return await Recipe.create(recipeData);

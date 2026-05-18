@@ -23,7 +23,7 @@ const recipeSchema = new mongoose.Schema(
         },
 
         //Cooking time in minutes
-        coookingTime: {
+        cookingTime: {
             type: Number,
             required: true,
             min: 1,
